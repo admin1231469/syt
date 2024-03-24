@@ -16,7 +16,7 @@ Nprogress.configure({ showSpinner: false });
 let whiteList = ["/home", '/hospital/register', '/hospital/detail', '/hospital/notice', '/hospital/close', '/hospital/search'];
 //添加相应的全局守卫
 //前置守卫
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
     //访问路由组件的之前,进度条开始动
     Nprogress.start();
     //动态设置网页左上角的标题
@@ -41,7 +41,7 @@ router.beforeEach((to, from, next) => {
 });
 
 //后置路由
-router.afterEach((to, from) => {
+router.afterEach((_to, _from) => {
     //访问路由组件成功,进度条消息
     Nprogress.done();
 })
